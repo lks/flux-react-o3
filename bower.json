@@ -1,0 +1,17 @@
+{
+  "name": "flux-starter-kit",
+  "version": "0.0.0",
+  "authors": [
+    "j.calabrese <joris.calabrese@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

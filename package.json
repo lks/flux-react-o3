@@ -1,0 +1,35 @@
+{
+  "author": "Joris Calabrese",
+  "name": "flux-react-o3",
+  "version": "0.0.1",
+  "description": "Manage your O3 interview",
+  "dependencies": {
+    "flux": "^2.0.0",
+    "object-assign": "^1.0.0",
+    "es6-promise": "^2.0.1",
+    "react": "^0.13.x",
+    "react-tools": "*",
+    "node-http-server": "^2.0.0",
+    "react-router": "*",
+    "superagent": "^0.21.0"
+  },
+  "devDependencies": {
+    "jest-cli": "^0.4.*",
+    "jsx-loader": "^0.12.2",
+    "reactify": "^0.15.2",
+    "webpack": "^1.5.3"
+  },
+  "scripts": {
+    "start": "bower install && npm run webpack & npm run serve",
+    "start-node": "npm run webpack & npm run serve-node",
+    "webpack": "webpack -w",
+    "serve": "cd dist && python -m SimpleHTTPServer",
+    "serve-node": "node ./node_modules/node-http-server/server/http.js root=./dist port=8888 launch=now",
+    "test": "jest"
+  },
+
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"]
+  }
+}
