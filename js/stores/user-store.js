@@ -10,7 +10,7 @@ var assign = require('object-assign');
 var users = [];
 
 /**
- *
+ * Manage the User data.
  */
 var UserStore = assign({}, EventEmitter.prototype, {
   emitChange: function () {

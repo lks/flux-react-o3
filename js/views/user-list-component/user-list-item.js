@@ -27,7 +27,7 @@ var UserListItem = React.createClass({
           <h3>{this.props.user.value.name}</h3>
         </div>
         <div className="large-2 columns">
-          <a href="/#/create/:id">Create O3</a>
+          <a href={"/#/create/" + this.props.user.key}>Create O3</a>
         </div>
         <div className="large-1 columns">
           <a ref="removeButton" href="#" onClick={this._onRemove}><i className="fa fa-remove fa-1x"></i></a>

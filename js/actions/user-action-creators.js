@@ -26,8 +26,7 @@ module.exports = {
   },
 
   listUser: function () {
-    console.log("list");
-    Api.listUserData()
+     Api.listUserData()
       .then(function (result) {
         AppDispatcher.handleViewAction({
           actionType: UserConstants.LIST_USER,

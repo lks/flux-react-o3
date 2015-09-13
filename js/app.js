@@ -14,9 +14,8 @@ var O3Form  = require('./views/o3-form');
 // declare our routes and their hierarchy
 var routes = (
   <Route handler={App}>
-
     <Route path="/" handler={O3Home}/>
-    <Route path="/create" handler={O3Form}/>
+    <Route path="/create/:id" handler={O3Form}/>
   </Route>
 );
 

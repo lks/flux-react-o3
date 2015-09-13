@@ -4,19 +4,26 @@
   "version": "0.0.1",
   "description": "Manage your O3 interview",
   "dependencies": {
-    "flux": "^2.0.0",
-    "object-assign": "^1.0.0",
     "es6-promise": "^2.0.1",
-    "react": "^0.13.x",
-    "react-tools": "*",
+    "flux": "^2.0.0",
     "node-http-server": "^2.0.0",
+    "object-assign": "^1.0.0",
+    "react": "^0.13.x",
     "react-router": "*",
+    "react-tools": "*",
+    "react-widgets": "^2.8.0",
     "superagent": "^0.21.0"
   },
   "devDependencies": {
+    "css-loader": "^0.18.0",
+    "file-loader": "^0.8.4",
     "jest-cli": "^0.4.*",
     "jsx-loader": "^0.12.2",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
     "reactify": "^0.15.2",
+    "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
     "webpack": "^1.5.3"
   },
   "scripts": {
@@ -27,9 +34,10 @@
     "serve-node": "node ./node_modules/node-http-server/server/http.js root=./dist port=8888 launch=now",
     "test": "jest"
   },
-
   "jest": {
     "scriptPreprocessor": "<rootDir>/preprocessor.js",
-    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"]
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
   }
 }

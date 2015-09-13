@@ -14,7 +14,7 @@ var FeedbackList = React.createClass({
   _createList: function (feedback) {
     var items = feedback.map(function (feedback) {
       return (
-        <FeedbackItem key={feedback.key} feedback={feedback.value} />
+        <FeedbackItem key={feedback.name} feedback={feedback} />
       )
     });
     return items;

@@ -23,12 +23,12 @@ var FeedbackItem = React.createClass({
         <div className="large-1 columns">
           <div className={this.props.feedback.adjust ? "circle adjust-feedback" : "circle positive-feedback"}></div>
         </div>
-        <div className="large-10 columns list">
+        <div className="large-9 columns list">
           <h3>{this.props.feedback.name}</h3>
           <p>{this.props.feedback.description}</p>
         </div>
-        <div className="large-1 columns">
-          <a ref="removeButton" href="#" onClick={this._onRemove}><i className="fa fa-remove fa-1x"></i></a>
+        <div className="large-2 columns">
+          <button ref="removeButton" className="small" onClick={this._onRemove}><i className="fa fa-remove fa-1x"></i></button>
         </div>
         <hr />
       </div>

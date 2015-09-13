@@ -49,7 +49,7 @@ var FeedbackForm = React.createClass({
           <textarea ref="feedbackDescription" placeholder="Description" rows="8"/>
         </div>
         <div className="large-7 large-centered columns">
-          <button className="round" ref="feedbackAdd" onClick={this._onAdd}>Add Feedback</button>
+          <a className="button round" ref="actionsAdd" onClick={this._onAdd}>Add Feedback</a>
         </div>
       </div>
     );

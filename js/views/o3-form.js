@@ -2,13 +2,17 @@
  * Created by j.calabrese on 8/24/15.
  */
 var React = require('react');
+var ReactRouter = require('react-router');
 
 var Feedback = require('./feedback-component/feedback');
 var Actions = require('./actions-component/actions');
 var O3ActionCreators = require('../actions/o3-action-creators');
 var FeedbackConstants = require('../constants/feedback-constants');
+var ActionsConstants = require('../constants/actions-constants');
 
 var O3From = React.createClass({
+  mixins: [ ReactRouter.Navigation ],
+
   getInitialState: function () {
     return {
       feedback: [],
@@ -18,6 +22,7 @@ var O3From = React.createClass({
 
   componentDidMount: function () {
     window.addEventListener(FeedbackConstants.FEEDBACK_ADD, this._onAddFeedback, false);
+    window.addEventListener(ActionsConstants.ACTIONS_ADD, this._onAddActions, false);
     window.addEventListener(FeedbackConstants.FEEDBACK_REMOVE, this._onRemoveFeedback, false);
   },
 
@@ -27,9 +32,16 @@ var O3From = React.createClass({
     this.setState({feedback: items});
   },
 
+  _onAddActions: function (e) {
+    console.log(e.detail.action);
+    var items = this.state.actions;
+    items.push(e.detail.action);
+    this.setState({actions: items});
+  },
+
   _onRemoveFeedback: function (e) {
     var items = this.state.feedback.filter(function (itm) {
-      return e.detail.feedback.value.name !== itm.value.name;
+      return e.detail.feedback.name !== itm.name;
     });
 
     this.setState({feedback: items});
@@ -38,27 +50,19 @@ var O3From = React.createClass({
 
   _onSubmit: function (e) {
     O3ActionCreators.createO3({
-      member: this.refs.member.getDOMNode().value,
+      memberId: this.props.params.id,
       memberWords: this.refs.memberWords.getDOMNode().value,
       myWords: this.refs.myWords.getDOMNode().value,
-      feedback: this.state.feedback
+      feedback: this.state.feedback,
+      actions: this.state.actions,
+      eventDate: new Date()
     });
+    this.transitionTo("/");
   },
 
   render: function () {
     return (
       <div className='o3-form'>
-        <div className="row">
-          <div className="large-12 columns">
-            <label>Who
-              <select ref="member">
-                <option value='loic.doubinine'>Loïc</option>
-                <option value='nicolas.berard'>Nicolas</option>
-                <option value='francois.pezier'>François</option>
-              </select>
-            </label>
-          </div>
-        </div>
         <div className="row">
           <div className="large-6 columns">
             <label>His feedbacks
@@ -88,7 +92,7 @@ var O3From = React.createClass({
         </div>
         <Actions actions={this.state.actions} />
 
-        <button onClick={this._onSubmit}>Save</button>
+        <input type="submit" className="button round" onClick={this._onSubmit} />
       </div>
 
     );

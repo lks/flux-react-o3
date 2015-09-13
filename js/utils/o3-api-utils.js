@@ -20,7 +20,7 @@ var Api = {
 
   addO3Data: function (o3) {
     return this._buildPostRequest(
-      "https://o3.firebaseio.com/o3.jso",
+      "https://o3.firebaseio.com/o3.json",
       'application/json',
       o3);
   },
